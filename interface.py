@@ -1,4 +1,4 @@
-!pip install -r requirements.txt
+from sklearn import metrics
 from sklearn.ensemble import RandomForestRegressor
 import streamlit as st
 import pandas as pd
