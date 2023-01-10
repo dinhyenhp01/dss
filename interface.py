@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@dinhyenhp01 
-juandavidp9
-/
-DS4App
-Public
-Fork your own copy of juandavidp9/DS4App
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-DS4App/main.py /
-@juandavidp9
-juandavidp9 Fixed bug "Engativá"
-…
-Latest commit 23025e2 on Jul 2, 2022
- History
- 1 contributor
-610 lines (511 sloc)  24.4 KB
-
 from operator import index
 import geopandas as gpd
 import shapely.wkt
