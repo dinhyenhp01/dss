@@ -1,3 +1,4 @@
+from sklearn.metrics import f1_score
 from sklearn.ensemble import RandomForestRegressor
 import streamlit as st
 import pandas as pd
