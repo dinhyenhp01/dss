@@ -20,11 +20,11 @@ st.title("Cosmetic Sales Products Home Page")
 st.subheader('Predict Price Cosmetic Product Sales')
 st.header('Fill information:')
 
-Category Name ID = st.slider("Category Name ID", 0, 8,1)
+Category_Name_ID = st.slider("Category Name ID", 0, 8,1)
 Qty = st.number_input("Quantity of Products: ")
-Cash Discount = st.slider("Cash Discount", 0, 100,10)
-Amount to Customer = st.number_input("Amount to Customer: ")
-Master Category = st.slider("Master Category ", 1, 12, 1)
+Cash_Discount = st.slider("Cash Discount", 0, 100,10)
+Amount_to_Customer = st.number_input("Amount to Customer: ")
+Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
 
 def Price(value):
