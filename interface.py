@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from sklearn import datasets
+from sklearn.ensemble import RandomForestRegressor
 from pickle import load
 
 #Loading up the Random Forest Regression Model we created
