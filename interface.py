@@ -3,7 +3,9 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from pickle import load
-from pickle import load_model
+import tensorflow as tf
+from tensorflow import keras
+from keras.models import load_model
 
 #Loading up the Random Forest Regression Model we created
 model = RandomForestRegressor(n_estimators=28,random_state=0)
