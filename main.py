@@ -12,14 +12,6 @@ from keras.models import load_model
 st.header("Cosmetic Price Sales Product Prediction ")
 data = pd.read_csv("https://github.com/dinhyenhp01/dss/blob/main/Cosmetic_products_sales_model.csv")
 
-#load label encoder
-encoder = LabelEncoder()
-encoder.classes_ = np.load('classes.npy',allow_pickle=True)
-
-# load model
-rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
-rf_model = load_model("rf_regressor.json")
-
 if st.checkbox('Show Training Dataframe'):
     data
 
@@ -31,6 +23,15 @@ Cash_Discount = st.slider("Cash Discount", 0, 100,10)
 Amount_to_Customer = st.number_input("Amount to Customer: ")
 Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
+
+#load label encoder
+encoder = LabelEncoder()
+encoder.classes_ = np.load('classes.npy',allow_pickle=True)
+
+# load model
+rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
+rf_model = load_model("rf_regressor.json")
+
 
 
 if st.button('Price Prediction'):
