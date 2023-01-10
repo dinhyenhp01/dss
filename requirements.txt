@@ -8,3 +8,4 @@ numpy
 fastparquet
 dask
 gcsfs
+scikit-learn
