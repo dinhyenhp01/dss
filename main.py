@@ -24,15 +24,9 @@ Amount_to_Customer = st.number_input("Amount to Customer: ")
 Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
 
-#load label encoder
-encoder = LabelEncoder()
-encoder.classes_ = np.load('classes.npy',allow_pickle=True)
-
 # load model
 rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
 rf_model = load_model("rf_regressor.json")
-
-
 
 if st.button('Price Prediction'):
     input_species = encoder.transform(np.expand_dims(inp_species, -1))
