@@ -3,7 +3,7 @@ import pandas as pd
 from pickle import load
 
 #Loading up the Random Forest Regression Model we created
-model = RandomForestRegressor(random_state = 0)
+model = RandomForestRegressor(n_estimators=28,random_state=0)
 model.load_model('EDA/rf_regressor.json')
 
 def predict(Category_Name, Qty, Cash_Discount, Amount_to_Customer, Master_to_Category, Rank):
