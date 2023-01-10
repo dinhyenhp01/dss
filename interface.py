@@ -570,6 +570,7 @@ with header_container:
 			footer {	
 			visibility: hidden;
 			}
+
 			footer:after {
 			content:'Made by juandp9'; 
 			visibility: visible;
@@ -600,24 +601,4 @@ with header_container:
 		
 	else:
 		randomF()
-		
-
-
-
-		
-    
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-DS4App/main.py at main · juandavidp9/DS4App
+	
