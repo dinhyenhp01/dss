@@ -4,10 +4,10 @@ from pickle import load
 
 #Loading up the Random Forest Regression Model we created
 model = RandomForestRegressor(random_state = 0)
-model.load_model('rf_regressor.json')
+model.load_model('EDA/rf_regressor.json')
 
-def predict(Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank):
-	X_test = pd.DataFrame([[Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank]],
+def predict(Category.Name, Qty, Cash.Discount, Amount.to.Customer, Master.to.Category, Rank):
+	X_test = pd.DataFrame([[Category.Name, Qty, Cash.Discount, Amount.to.Customer, Master.to.Category, Rank]],
 	columns = ['Category Name', 'Qty', 'Cash Discount', 'Amount to Customer', 'Master to Category', 'Rank'])
 	X_new_test = poly.transform(X_test)
 	X_new_test = pd.DataFrame(data = X_new_test, columns = poly.get_geature_names_out(X_test.columns))
@@ -29,7 +29,7 @@ Rank = st.slider("Rank", 1, 52, 4)
 
 def Price(value):
 	if st.button ('Predict Price'):
-		price = predict(Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank)
+		price = predict(Category.Name, Qty, Cash.Discount, Amount.to.Customer, Master.to.Category, Rank)
 		st.success(f'Predict Price of Cosmetic Product is: {Price[0]}')
 
 # ---- HIDE STREAMLIT STYLE ----
