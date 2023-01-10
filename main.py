@@ -9,6 +9,9 @@ from sklearn.ensemble import RandomForestRegressor
 from pickle import load
 from keras.models import load_model
 
+st.set_page_config(page_tile = "Cosmetic Price Sales Product Prediction",
+                   page_icon = "https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphoto%2Fnatural-organic-spa-cosmetic-products-set-with-eucalyptus-leaves-top-view-herbal-gm1300459022-392778529&psig=AOvVaw22rU6GdcAv1tcGLhwnEnmC&ust=1673454556357000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLCtkc25vfwCFQAAAAAdAAAAABAE")
+
 st.header("Cosmetic Price Sales Product Prediction")
 
 data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_model.csv?token=GHSAT0AAAAAAB5HGBWPYUUWN4I7CUOTVUUUY55STIQ")
