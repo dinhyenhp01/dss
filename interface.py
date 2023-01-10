@@ -7,7 +7,7 @@ from keras.models import load_model
 
 #Loading up the Random Forest Regression Model we created
 model = RandomForestRegressor(n_estimators=28,random_state=0)
-model = models.load_model('rf_regressor.json')
+model = model.load_model('rf_regressor.json')
 
 def predict(Category_Name, Qty, Cash_Discount, Amount_to_Customer, Master_to_Category, Rank):
 	X_test = pd.DataFrame([[Category_Name, Qty, Cash_Discount, Amount_to_Customer, Master_to_Category, Rank]],
