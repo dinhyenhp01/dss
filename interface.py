@@ -1,39 +1,43 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 16 18:47:20 2021
-
-@author: gaurav sahani
-"""
-
-
 import streamlit as st
 import pandas as pd
-import pickle
-from PIL import Image
-model = pickle.load(open('IRIS-model.pkl', 'rb'))
+from pickle import load
 
-st.header("Iris Classification:")
-image = Image.open('image.png')
-st.image(image, use_column_width=True,format='PNG')
-st.write("Please insert values, to get Iris class prediction")
+#Loading up the Random Forest Regression Model we created
+model = RandomForestRegressor(random_state = 0)
+model.load_model('EDA/rf_regressor.json)
 
-SepalLengthCm = st.slider('SepalLengthCm:', 2.0, 6.0)
-SepalWidthCm = st.slider('SepalWidthCm:', 0.0, 5.0)
-PetalLengthCm = st.slider('PetalLengthCm',0.0, 3.0)
-PetalWidthCm = st.slider('PetalWidthCm:', 0.0, 2.0)
-data = {'SepalLengthCm': SepalLengthCm,
-        'SepalWidthCm': SepalWidthCm,
-        'PetalLengthCm': PetalLengthCm,
-        'PetalWidthCm': PetalWidthCm}
+def predict(Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank):
+	X_test = pd.DataFrame([[Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank]],
+	columns = ['Category Name', 'Qty', 'Cash Discount', 'Amount to Customer', 'Master to Category', 'Rank'])
+	X_new_test = poly.transform(X_test)
+	X_new_test = pd.DataFrame(data = X_new_test, columns = poly.get_geature_names_out(X_test.columns))
+	X_selector_test = selector.transform(X_new_test)
+	X_test_res = scale.transform(X_selector_test)
+	prediction = model.predict(X_test_res)
+	return predict
 
-features = pd.DataFrame(data, index=[0])
+st.title("Cosmetic Sales Products Home Page")
+st.subheader('Predict Price Cosmetic Product Sales')
+st.header('Fill information:')
 
-pred_proba = model.predict_proba(features)
-#or
-prediction = model.predict(features)
+Category Name ID = st.slider("Category Name ID", 0, 8,1)
+Qty = st.number_input("Quantity of Products: ")
+Cash Discount = st.slider("Cash Discount", 0, 100,10)
+Amount to Customer = st.number_input("Amount to Customer: ")
+Master Category = st.slider("Master Category ", 1, 12, 1)
+Rank = st.slider("Rank", 1, 52, 4)
 
-st.subheader('Prediction Percentages:') 
-st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
-st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
-st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
+def Price(value):
+	if st.button ('Predict Price'):
+		price = predict(Category Name, Qty, Cash Discount, Amount to Customer, Master to Category, Rank)
+		st.success(f'Predict Price of Cosmetic Product is: {Price[0]}')
 
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
