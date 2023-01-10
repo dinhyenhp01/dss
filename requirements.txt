@@ -1,0 +1,10 @@
+altair
+pandas
+pyarrow
+sklearn
+streamlit
+xgboost
+numpy
+fastparquet
+dask
+gcsfs
