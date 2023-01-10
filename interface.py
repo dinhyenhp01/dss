@@ -1,4 +1,5 @@
 import streamlit as st
+from predict_cost import predict
 import numpy as np
  
 st.title('Home price prediction')
