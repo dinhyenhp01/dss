@@ -9,3 +9,4 @@ fastparquet
 dask
 gcsfs
 scikit-learn
+keras
