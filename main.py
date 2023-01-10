@@ -11,7 +11,7 @@ from keras.models import load_model
 
 st.header("Cosmetic Price Sales Product Prediction")
 
-data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_model.csv?token=GHSAT0AAAAAAB5HGBWPJM63MC34XHN73JKMY55RSWQ")
+data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_model.csv?token=GHSAT0AAAAAAB5HGBWPYUUWN4I7CUOTVUUUY55STIQ")
 
 if st.checkbox('Our data'):
     data
