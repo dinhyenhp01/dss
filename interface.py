@@ -5,6 +5,11 @@ from sklearn.ensemble import RandomForestRegressor
 from pickle import load
 from keras.models import load_model
 
+st.set_page_config(page_title = "Cosmetic Sales Products Home Page")
+st.subheader("Our dataset: ")
+data_new = pd.read_csv("Cosmetic_Sales_Products_clean.csv)
+data_new
+
 #Loading up the Random Forest Regression Model we created
 model = RandomForestRegressor(n_estimators=28,random_state=0)
 model.load_model('rf_regressor.json')
@@ -30,10 +35,9 @@ Amount_to_Customer = st.number_input("Amount to Customer: ")
 Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
 
-def Price(value):
-	if st.button ('Predict Price'):
-		price = predict(Category_Name, Qty, Cash_Discount, Amount_to_Customer, Master_to_Category, Rank)
-		st.success(f'Predict Price of Cosmetic Product is: {Price[0]}')
+if st.button ('Predict Price'):
+	price = predict(Category_Name, Qty, Cash_Discount, Amount_to_Customer, Master_to_Category, Rank)
+	st.success(f'Predict Price of Cosmetic Product is: {Price[0]}')
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
