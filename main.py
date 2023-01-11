@@ -12,7 +12,8 @@ import h5py
 
 st.header("Cosmetic Price Sales Product Prediction")
 
-data = pd.read_csv("https://github.com/dinhyenhp01/dss/blob/bb2a6d4b10b769a0f0362474358b715f0d14c747/Cosmetic_products_sales_clean.csv")
+url = "https://github.com/dinhyenhp01/dss/blob/bb2a6d4b10b769a0f0362474358b715f0d14c747/Cosmetic_products_sales_clean.csv"
+data = pd.read_csv(url,index_col=0)
 
 if st.checkbox('Our data'):
     data
