@@ -12,7 +12,7 @@ import h5py
 
 st.header("Cosmetic Price Sales Product Prediction")
 
-data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_clean.csv?token=GHSAT0AAAAAAB5HGBWPGEJP7UF2DDY7AMCYY56ETBQ")
+data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_clean.csv?token=GHSAT0AAAAAAB5HGBWPRWTEZA4E5ZQZYQJ2Y56FEHA")
 
 if st.checkbox('Our data'):
     data
@@ -46,7 +46,5 @@ if st.button('Price Prediction'):
     st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
     
 # load model
-rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
-rf_model = load_model("best_model.json")
-
-
+best_xgboost_model = xgb.XGBRegressor()
+best_xgboost_model.load_model("best_model.json")
