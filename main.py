@@ -18,8 +18,6 @@ if st.checkbox('Our data'):
     data
 
 st.subheader("Please fill information of Product:")
-
-st.subheader("Please select relevant features of your fish!")
 left_column, right_column = st.columns(2)
 with left_column:
     inp_zone = st.radio(
@@ -40,7 +38,7 @@ encoder.classes_ = np.load('classes.npy',allow_pickle=True)
 if st.button('Price Prediction'):
     input_zone = encoder.transform(np.expand_dims(inp_zone, -1))
     inputs = np.expand_dims(
-        [int(input_zone), Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
+        [int(input_zone),Zone, Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
     prediction = rf_model.predict(inputs)
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
