@@ -28,7 +28,7 @@ Rank = st.slider("Rank", 1, 52, 4)
 
 # load model
 rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
-rf_model = load_model("rf_regressor.json")
+rf_model = load_model("best_model.json")
 
 if st.button('Price Prediction'):
     input_species = encoder.transform(np.expand_dims(inp_species, -1))
