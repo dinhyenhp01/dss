@@ -12,17 +12,12 @@ import h5py
 
 st.header("Cosmetic Price Sales Product Prediction")
 
-data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_clean.csv?token=GHSAT0AAAAAAB5HGBWOWCZEMJZBUOG2MUCCY56FHRA")
+data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_clean.csv?token=GHSAT0AAAAAAB5HGBWP7D5WVZIHCQOHARR6Y56FO6A")
 
 if st.checkbox('Our data'):
     data
 
 st.subheader("Please fill information of Product:")
-left_column, right_column = st.columns(2)
-with left_column:
-    inp_zone = st.radio(
-        'Zone of Sales Products:',
-        np.unique(data['Zone']))
 
 Category_Name_ID = st.slider("Category Name ID", 0, 8,1)
 Qty = st.number_input("Quantity of Products: ")
@@ -36,10 +31,9 @@ encoder = LabelEncoder()
 encoder.classes_ = np.load('classes.npy',allow_pickle=True)
 
 if st.button('Price Prediction'):
-    input_zone = encoder.transform(np.expand_dims(inp_zone, -1))
     inputs = np.expand_dims(
-        [int(input_zone),Zone, Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
-    prediction = rf_model.predict(inputs)
+        [Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
+    prediction = best_xgboost_model.predict(inputs)
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
     
