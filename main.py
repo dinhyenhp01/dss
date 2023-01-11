@@ -8,6 +8,7 @@ from sklearn.preprocessing import  LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
 from pickle import load
 from keras.models import load_model
+import h5py
 
 st.header("Cosmetic Price Sales Product Prediction")
 
@@ -25,11 +26,6 @@ Amount_to_Customer = st.number_input("Amount to Customer: ")
 Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
 
-
-# load model
-rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
-rf_model = load_model("best_model.json")
-
 if st.button('Price Prediction'):
     input_species = encoder.transform(np.expand_dims(inp_species, -1))
     inputs = np.expand_dims(
@@ -37,3 +33,9 @@ if st.button('Price Prediction'):
     prediction = rf_model.predict(inputs)
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
+    
+# load model
+rf_model = RandomForestRegressor(n_estimators=28,random_state=0)
+rf_model = load_model("best_model.json")
+
+
