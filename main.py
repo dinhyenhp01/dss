@@ -39,6 +39,6 @@ if st.button('Price Prediction'):
         [Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
     prediction = best_xgboost_model.predict(inputs)
     print("final pred", np.squeeze(prediction, -1))
-    st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
+    st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}")
     
 
