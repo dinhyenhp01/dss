@@ -12,7 +12,7 @@ import h5py
 
 st.header("Cosmetic Price Sales Product Prediction")
 
-data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_model.csv?token=GHSAT0AAAAAAB5HGBWPXVJ66XSFYHUENKESY56ELQQ")
+data = pd.read_csv("https://raw.githubusercontent.com/dinhyenhp01/dss/main/Cosmetic_products_sales_model.csv?token=GHSAT0AAAAAAB5HGBWOMTNWWLVSJKWZ2JTSY56EMWA")
 
 if st.checkbox('Our data'):
     data
@@ -25,6 +25,10 @@ Cash_Discount = st.slider("Cash Discount", 0, 100,10)
 Amount_to_Customer = st.number_input("Amount to Customer: ")
 Master_Category = st.slider("Master Category ", 1, 12, 1)
 Rank = st.slider("Rank", 1, 52, 4)
+
+#load label encoder
+encoder = LabelEncoder()
+encoder.classes_ = np.load('classes.npy',allow_pickle=True)
 
 if st.button('Price Prediction'):
     input_species = encoder.transform(np.expand_dims(inp_species, -1))
