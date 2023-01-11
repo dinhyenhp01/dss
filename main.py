@@ -30,6 +30,10 @@ Rank = st.slider("Rank", 1, 52, 4)
 encoder = LabelEncoder()
 encoder.classes_ = np.load('classes.npy',allow_pickle=True)
 
+# load model
+best_xgboost_model = xgb.XGBRegressor()
+best_xgboost_model.load_model("best_model.json")
+
 if st.button('Price Prediction'):
     inputs = np.expand_dims(
         [Category_Name_ID, Qty, Cash_Discount, Amount_to_Customer, Master_Category, Rank], 0)
@@ -37,6 +41,4 @@ if st.button('Price Prediction'):
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Price should be: {np.squeeze(prediction, -1):.2f}g")
     
-# load model
-best_xgboost_model = xgb.XGBRegressor()
-best_xgboost_model.load_model("best_model.json")
+
